@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurelia & Stone — Fine Jewelry Atelier</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="#" class="logo" data-route="home">AURELIA & STONE</a>
+            <nav class="main-nav" id="mainNav">
+                <a href="#" class="nav-link active" data-route="home">Home</a>
+                <a href="#" class="nav-link" data-route="collections">Collections</a>
+                <a href="#" class="nav-link" data-route="configurator">Bespoke Studio</a>
+                <a href="#" class="nav-link" data-route="atelier">Atelier & Craft</a>
+                <a href="#" class="nav-link" data-route="journal">Journal</a>
+            </nav>
+            <div class="header-actions">
+                <button class="action-btn" id="searchBtn" title="Search">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                </button>
+                <button class="action-btn" id="wishlistBtn" title="Wishlist">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    <span class="badge" id="wishlistBadge">0</span>
+                </button>
+                <button class="action-btn" id="cartBtn" title="Cart">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+                    <span class="badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="appMain">
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>AURELIA & STONE</h3>
+                <p>Crafting timeless heirlooms with conscious ethics and extraordinary artistry since 2012.</p>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Pinterest</a>
+                    <a href="#">Vogue</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#" data-route="collections">Engagement Rings</a></li>
+                    <li><a href="#" data-route="collections">Fine Necklaces</a></li>
+                    <li><a href="#" data-route="collections">Rare Gemstones</a></li>
+                    <li><a href="#" data-route="configurator">Custom Design</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Client Care</h4>
+                <ul>
+                    <li><a href="#">Complimentary Shipping</a></li>
+                    <li><a href="#">Lifetime Warranty</a></li>
+                    <li><a href="#">Ring Size Guide</a></li>
+                    <li><a href="#">Book an Appointment</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Join the Atelier</h4>
+                <p>Receive private previews and invitation-only collection drops.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aurelia & Stone Fine Jewelry. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="searchModal">
+        <div class="search-modal-content">
+            <button class="close-modal" id="closeSearch">&times;</button>
+            <h2>Search Atelier</h2>
+            <input type="text" id="searchInput" placeholder="Search by gemstone, collection, style...">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <div class="drawer-overlay" id="cartDrawer">
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <h2>Your Shopping Bag</h2>
+                <button class="close-drawer" id="closeCart">&times;</button>
+            </div>
+            <div class="drawer-body" id="cartItemsList">
+            </div>
+            <div class="drawer-footer">
+                <div class="cart-total">
+                    <span>Subtotal:</span>
+                    <span id="cartTotalPrice">$0.00</span>
+                </div>
+                <button class="btn-primary checkout-btn" id="checkoutBtn">Proceed to Secure Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="drawer-overlay" id="wishlistDrawer">
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <h2>Curated Wishlist</h2>
+                <button class="close-drawer" id="closeWishlist">&times;</button>
+            </div>
+            <div class="drawer-body" id="wishlistItemsList">
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
